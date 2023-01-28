@@ -6,16 +6,14 @@ from json.decoder import JSONDecodeError
 
 
 def save_to_drive(data, file):
-    f = open(file, "w")
-    f.write(data)
-    f.close()
+    with open(file, "w") as f:
+        f.write(data)
 
 
 def read_from_drive(file):
-    f = open(file, "r")
-    data = f.read()
-    f.close()
-    return data
+    with open(file, "r") as f:
+        data = f.read()
+        return data
 
 
 def json_write(data, file):
