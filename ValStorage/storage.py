@@ -44,7 +44,7 @@ def list_dir(dir: Path):
 
 def linux_path():
     xdg = getenv("XDG_CONFIG_HOME")
-    if (xdg):
+    if xdg:
         return Path(xdg) / "ValUtils"
     return Path().home() / ".ValUtils"
 
@@ -52,13 +52,13 @@ def linux_path():
 def utils_path():
     global utilsPath
     envPath = getenv("VALUTILS_PATH")
-    if (envPath):
+    if envPath:
         utilsPath = Path(envPath).absolute()
-    elif (platform.system() == "Windows"):
+    elif platform.system() == "Windows":
         appdata = Path(getenv('APPDATA', "."))
         utilsPath = appdata / "ValUtils"
         create_path(utilsPath)
-    elif (platform.system() == "Linux"):
+    elif platform.system() == "Linux":
         utilsPath = linux_path()
         create_path(utilsPath)
     return utilsPath
