@@ -1,8 +1,8 @@
-import platform
 import json
-from pathlib import Path
-from os import getenv
+import platform
 from json.decoder import JSONDecodeError
+from os import getenv
+from pathlib import Path
 
 
 def save_to_drive(data, file):

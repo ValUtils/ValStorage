@@ -1,7 +1,9 @@
 from json.decoder import JSONDecodeError
-from typing import TypeVar, Callable, Union
 from pathlib import Path
+from typing import Callable, TypeVar, Union
+
 from dataclasses_json import DataClassJsonMixin
+
 from .storage import read_from_drive, save_to_drive
 
 T = TypeVar('T', bound=DataClassJsonMixin)
